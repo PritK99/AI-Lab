@@ -130,7 +130,6 @@ int main()
             q.push(list[i]);
         }
     }
-    cout << "Total number of states explored during bfs are: " << bfsCount << endl;
 
     /***********************Implementing DFS*********************/
 
@@ -168,6 +167,7 @@ int main()
             st.push(list[i]);
         }
     }
+    cout << "Total number of states explored during bfs are: " << bfsCount << endl;
     cout << "Total number of states explored during dfs are: " << dfsCount << endl;
 
     return 0;
