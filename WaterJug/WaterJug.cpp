@@ -108,8 +108,8 @@ int main()
 
     //create a queue to hold states
     queue <vector <int>> q;
-    vector <int> inital = {0,0};
-    q.push(inital);
+    vector <int> initial = {0,0};
+    q.push(initial);
     cout << "Searching state space using BFS algorithm...\n";
     int bfsCount = 0;
     while (!(J1.current == target || J2.current == target) && !q.empty())
@@ -147,7 +147,7 @@ int main()
 
     //create a queue to hold states
     stack <vector <int>> st;
-    st.push(inital);
+    st.push(initial);
     cout << "Searching state space using DFS algorithm...\n";
     int dfsCount = 0;
     while (!(J1.current == target || J2.current == target) && !st.empty())
