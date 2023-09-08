@@ -3,6 +3,7 @@
 #include <set>
 #include <stack>
 #include <queue>
+#include <chrono>
 
 using namespace std;
 
@@ -183,8 +184,8 @@ int main()
     queue <vector <int>> q;
     q.push(initial);
     cout << "Searching state space using BFS algorithm...\n";
-    int bfsCount = 0;
     bool isFound = 0;
+    auto bstart = chrono::high_resolution_clock::now();
     while (!q.empty())
     {
         vector <int> curr = q.front();
@@ -194,12 +195,10 @@ int main()
 
         //cleaning the cell
         e.grid[curr[0]][curr[1]] = 0;
-        bfsCount++;
         agent.x = curr[0];
         agent.y = curr[1];
         vector <vector <int>> list;
         list = moveGen(agent, e, visited);
-
         for (int i = 0 ; i < list.size(); i++)
         {
             q.push(list[i]);
@@ -207,21 +206,24 @@ int main()
 
         if (GoalState(e.grid))
         {
-            bfsCount++;
             e.printEnvironment();
             isFound = 1;
             break;
         }
     }
+    auto bend = std::chrono::high_resolution_clock::now();
+    // Calculate the time difference.
+    auto bfsCount = bend - bstart;
     if (isFound)
     {
-        cout << "Total time required to clean the gird using BFS is: " << bfsCount << endl;
+        cout << "Total time required to clean the gird using BFS is: " << bfsCount.count() << " milliseconds" << endl;
     }
     else
     {
-        cout << "The above grid can not be cleaned completely due to obstacles\n";
+        cout << "The above grid can not be cleaned completely due to obstacles. Time required: " << bfsCount.count() << " milliseconds" << endl;
         e.printEnvironment();
     }
+
 
     //reset visited matrix and grid
     visited.clear();
@@ -233,8 +235,8 @@ int main()
     stack <vector <int>> st;
     st.push(initial);
     cout << "Searching state space using DFS algorithm...\n";
-    int dfsCount = 0;
     isFound = 0;
+    auto dstart = chrono::high_resolution_clock::now();
     while (!st.empty())
     {
         vector <int> curr = st.top();
@@ -244,7 +246,6 @@ int main()
 
         //cleaning the cell
         e.grid[curr[0]][curr[1]] = 0;
-        dfsCount++;
         agent.x = curr[0];
         agent.y = curr[1];
         vector <vector <int>> list;
@@ -257,19 +258,21 @@ int main()
 
         if (GoalState(e.grid))
         {
-            dfsCount++;
             e.printEnvironment();
             isFound = 1;
             break;
         }
     }
+    auto dend = std::chrono::high_resolution_clock::now();
+    // Calculate the time difference.
+    auto dfsCount = dend - dstart;
     if (isFound)
     {
-        cout << "Total time required to clean the gird using DFS is: " << dfsCount << endl;
+        cout << "Total time required to clean the gird using DFS is: " << dfsCount.count() << " milliseconds" << endl;
     }
     else
     {
-        cout << "The above grid can not be cleaned completely due to obstacles\n";
+        cout << "The above grid can not be cleaned completely due to obstacles. Time required: " << dfsCount.count() << " milliseconds" << endl;
         e.printEnvironment();
     }
 
