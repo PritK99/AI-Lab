@@ -216,7 +216,7 @@ int main()
     auto bfsCount = bend - bstart;
     if (isFound)
     {
-        cout << "Total time required to clean the gird using BFS is: " << bfsCount.count() << " milliseconds" << endl;
+        cout << "Total time required to clean the grid using BFS is: " << bfsCount.count() << " milliseconds" << endl;
     }
     else
     {
@@ -268,7 +268,7 @@ int main()
     auto dfsCount = dend - dstart;
     if (isFound)
     {
-        cout << "Total time required to clean the gird using DFS is: " << dfsCount.count() << " milliseconds" << endl;
+        cout << "Total time required to clean the grid using DFS is: " << dfsCount.count() << " milliseconds" << endl;
     }
     else
     {
