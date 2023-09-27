@@ -16,7 +16,7 @@
 ```
 👨‍💻AI-Lab
  ┣ 📂assets                            // Contains all the reference gifs, images
- ┣ 📂State Space Search                 
+ ┣ 📂State Space Search                // Using BFS and DFS traversal
  ┃ ┣ 📄VacuumCleaner.cpp                
  ┃ ┣ 📄WaterJug.cpp
  ┃ ┣ 📄8-Puzzle.cpp
@@ -25,7 +25,7 @@
  ┃ ┣ 📄8-Puzzle-heuristic_1.cpp
  ┃ ┣ 📄8-Puzzle-heuristic_2.cpp
  ┃ ┣ 📄README.md 
- ┣ 📂Hill Climbing
+ ┣ 📂Hill Climbing                      // Using hill climbing approach
  ┣ 📄README.md 
 ``` 
 
