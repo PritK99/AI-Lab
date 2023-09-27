@@ -8,7 +8,7 @@
 using namespace std;
 
 //-1 represents blank
-vector<vector<int>> initial = {{-1, 2, 3}, {1, 8, 4}, {7, 6, 5}};
+vector<vector<int>> initial = {{6, -1, 2}, {1, 8, 4}, {7, 3, 5}};
 
 //generates all possible moves from current state
 vector <vector <vector <int>>> moveGen(vector <vector <int>> matrix, set <vector <vector <int>>> &visited){
