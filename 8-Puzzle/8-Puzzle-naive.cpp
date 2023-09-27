@@ -7,13 +7,32 @@
 
 using namespace std;
 
+//ideal matrix for comparisons
+vector <vector <int>> ideal_matrix = {{1,2,3},{8,-1,4}, {7,6,5}};
+
 //-1 represents blank
 vector<vector<int>> initial = {{-1, 2, 3}, {1, 8, 4}, {7, 6, 5}};
 
+//heuristic function to calculate misplaced tiles
+int heuristic(vector <vector <int>> matrix)
+{
+    int miss = 0;
+    for (int i = 0 ; i < matrix.size(); i++)
+    {
+        for (int j = 0 ; j < matrix[0].size(); j++)
+        {
+            if (matrix[i][j] != ideal_matrix[i][j])
+            {
+                miss++;
+            }
+        }
+    }
+}
+
 //generates all possible moves from current state
-vector <vector <vector <int>>> moveGen(vector <vector <int>> matrix, set <vector <vector <int>>> &visited){
+vector <pair <int, vector <vector<int>>>> moveGen(vector <vector <int>> matrix, set <vector <vector <int>>> &visited){
     vector <vector <vector <int>>> list;
-    vector <vector <vector <int>>> moves;
+    vector <pair <int, vector <vector<int>>>> moves;
     vector <vector <int>> temp = matrix;
 
     if (matrix[0][0] == -1)
@@ -121,7 +140,11 @@ vector <vector <vector <int>>> moveGen(vector <vector <int>> matrix, set <vector
         auto it = visited.find(list[i]);
         if (it == visited.end())
         {
-            moves.push_back(list[i]);
+            pair <int, vector <vector<int>>> temp;
+            int x = heuristic(list[i]);
+            temp.first = x;
+            temp.second = list[i];
+            moves.push_back(temp);
         }
     }
 
@@ -153,25 +176,29 @@ int main()
 
     /***********************Implementing BFS*********************/
 
-    //create a queue to hold states
-    queue <vector <vector <int>>> q;
-    q.push(initial);
+    //create a priority queue to hold states
+    priority_queue <pair <int, vector <vector<int>>>> pq;
+    int x = heuristic(initial);
+    pair <int, vector <vector<int>>> temp;
+    temp.first = x;
+    temp.second = initial;
+    pq.push(temp);
     cout << "Searching state space using BFS algorithm...\n";
     int bfsCount = 0;
-    while (!q.empty())
+    while (!pq.empty())
     {
-        vector <vector <int>> curr = q.front();
-        q.pop();
+        pair <int, vector <vector<int>>> curr = pq.top();
+        pq.pop();
 
-        if (GoalState(curr))
+        if (GoalState(curr.second))
         {
             bfsCount++;
-            print(curr);
+            print(curr.second);
             break ;
         }
         
-        visited.insert(curr);
-        print(curr);
+        visited.insert(curr.second);
+        print(curr.second);
         bfsCount++;
         vector <vector <vector <int>>> list;
         list = moveGen(curr, visited);
@@ -182,42 +209,7 @@ int main()
         }
     }
 
-    /***********************Implementing DFS*********************/
-
-    //reset visited data strcture
-    visited.clear();
-
-    //create a stack to hold states
-    stack <vector <vector <int>>> st;
-    st.push(initial);
-    cout << "Searching state space using DFS algorithm...\n";
-    int dfsCount = 0;
-    while (!st.empty())
-    {
-        vector <vector <int>> curr = st.top();
-        st.pop();
-
-        if (GoalState(curr))
-        {
-            dfsCount++;
-            print(curr);
-            break ;
-        }
-        
-        visited.insert(curr);
-        print(curr);
-        dfsCount++;
-        vector <vector <vector <int>>> list;
-        list = moveGen(curr, visited);
-
-        for (int i = 0 ; i < list.size(); i++)
-        {
-            st.push(list[i]);
-        }
-    }
-
     cout << "Total number of states explored during bfs are: " << bfsCount << endl;
-    cout << "Total number of states explored during dfs are: " << dfsCount << endl;
 
     return 0;
 }
