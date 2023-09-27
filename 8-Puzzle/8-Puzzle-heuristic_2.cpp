@@ -1,3 +1,7 @@
+/*
+Heuristic function calculates the manhattan distance for misplaced tiles.
+Output: 27 steps
+*/
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,9 +10,6 @@
 #include <set>
 
 using namespace std;
-
-//ideal matrix for comparisons
-vector <vector <int>> ideal_matrix = {{1,2,3},{8,-1,4}, {7,6,5}};
 
 //-1 represents blank
 vector<vector<int>> initial = {{6, -1, 2}, {1, 8, 4}, {7, 3, 5}};
@@ -21,7 +22,7 @@ int heuristic(vector <vector <int>> matrix)
     {
         for (int j = 0 ; j < matrix[0].size(); j++)
         {
-            //find position in ideal matrix
+            //find manhattan distance as per ideal matrix
             switch(matrix[i][j])
             {
                 case(1):
@@ -68,13 +69,8 @@ int heuristic(vector <vector <int>> matrix)
                 {
                     man_dist+=(abs(i-1)+abs(j-1));
                     break;
-                } 
-                default:
-                {
-                    ;
-                }             
+                }           
             }
-
         }
     }
     return man_dist;
@@ -224,8 +220,6 @@ int main()
 {
     //create a set to store visited states
     set <vector <vector <int>>> visited;
-
-    /***********************Implementing BFS*********************/
 
     //create a priority queue to hold states
     priority_queue <pair <int, vector <vector<int>>>> pq;
