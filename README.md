@@ -16,12 +16,16 @@
 ```
 👨‍💻AI-Lab
  ┣ 📂assets                            // Contains all the reference gifs, images
- ┣ 📂State Space Search                // Code files 
- ┃ ┣ 📄VacuumCleaner.cpp               // Contains code for getting readings from LSA 
+ ┣ 📂State Space Search                 
+ ┃ ┣ 📄VacuumCleaner.cpp                
  ┃ ┣ 📄WaterJug.cpp
  ┃ ┣ 📄8-Puzzle.cpp
- ┃ ┣ 📄README.cpp
- ┣ 📂Heuristic Search                
+ ┃ ┣ 📄README.md
+ ┣ 📂Heuristic Search  
+ ┃ ┣ 📄8-Puzzle-heuristic_1.cpp
+ ┃ ┣ 📄8-Puzzle-heuristic_2.cpp
+ ┃ ┣ 📄README.md 
+ ┣ 📄README.md 
 ``` 
 
 ## Contributors
