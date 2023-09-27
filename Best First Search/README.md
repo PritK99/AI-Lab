@@ -14,7 +14,7 @@ Consider ```8-Puzzle``` problem with initial configuration as
 vector<vector<int>> initial = {{6, -1, 2}, {1, 8, 4}, {7, 3, 5}};
 ```
 
-* No. of states explored using BFS: ```2428 ```
+* No. of states explored using BFS: ```2428```
 * No. of states explored using DFS: ```75333```
 * No. of states explored using heuristic function 1: ```653```
 * No. of states explored using heuristic function 2: ```27```
