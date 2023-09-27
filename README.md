@@ -21,10 +21,11 @@
  ┃ ┣ 📄WaterJug.cpp
  ┃ ┣ 📄8-Puzzle.cpp
  ┃ ┣ 📄README.md
- ┣ 📂Heuristic Search  
+ ┣ 📂Best First Search                  // Using Heuristic functions  
  ┃ ┣ 📄8-Puzzle-heuristic_1.cpp
  ┃ ┣ 📄8-Puzzle-heuristic_2.cpp
  ┃ ┣ 📄README.md 
+ ┣ 📂Hill Climbing
  ┣ 📄README.md 
 ``` 
 
