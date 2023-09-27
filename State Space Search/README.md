@@ -3,6 +3,7 @@
 ## Introduction
 
 <img src = "../assets/State-Space-Search.png" alt="State-Space-Search">
+
 ## Results
 
 1. Vacuum Cleaner Agent
