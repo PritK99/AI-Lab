@@ -27,6 +27,7 @@ int heuristic(vector <vector <int>> matrix)
             }
         }
     }
+    return miss;
 }
 
 //generates all possible moves from current state
@@ -142,7 +143,7 @@ vector <pair <int, vector <vector<int>>>> moveGen(vector <vector <int>> matrix, 
         {
             pair <int, vector <vector<int>>> temp;
             int x = heuristic(list[i]);
-            temp.first = x;
+            temp.first = -x;
             temp.second = list[i];
             moves.push_back(temp);
         }
@@ -180,10 +181,10 @@ int main()
     priority_queue <pair <int, vector <vector<int>>>> pq;
     int x = heuristic(initial);
     pair <int, vector <vector<int>>> temp;
-    temp.first = x;
+    temp.first = -x;
     temp.second = initial;
     pq.push(temp);
-    cout << "Searching state space using BFS algorithm...\n";
+    cout << "Searching state space using heuristic function 1...\n";
     int bfsCount = 0;
     while (!pq.empty())
     {
@@ -200,16 +201,16 @@ int main()
         visited.insert(curr.second);
         print(curr.second);
         bfsCount++;
-        vector <vector <vector <int>>> list;
-        list = moveGen(curr, visited);
+        vector <pair <int, vector <vector<int>>>> list;
+        list = moveGen(curr.second, visited);
 
         for (int i = 0 ; i < list.size(); i++)
         {
-            q.push(list[i]);
+            pq.push(list[i]);
         }
     }
 
-    cout << "Total number of states explored during bfs are: " << bfsCount << endl;
+    cout << "Total number of states explored during heuristic function 1 are: " << bfsCount << endl;
 
     return 0;
 }
