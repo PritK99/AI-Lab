@@ -6,11 +6,11 @@
 
 ## Results
 
-1. Vacuum Cleaner Agent
+1. ```Vacuum Cleaner Agent```
 
 The environment is created randomly. Even the initial state is choosen randomly. In general, DFS outperforms BFS.
 
-2. Water Jug problem
+2. ```Water Jug problem```
 
 Consider input as
 
@@ -23,7 +23,7 @@ Enter the target value: 4
 * Total number of states explored during bfs are: ```15```
 * Total number of states explored during dfs are: ```12```
 
-3. 8-Puzzle
+3. ```8-Puzzle```
 
 Consider initial configuration as 
 ```cpp
