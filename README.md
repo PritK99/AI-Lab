@@ -17,16 +17,16 @@
 👨‍💻AI-Lab
  ┣ 📂assets                            // Contains all the reference gifs, images
  ┣ 📂State Space Search                // Code files 
- ┃ ┣ 📄main.c                           // Contains code for getting readings from LSA 
- ┃   ┃ ┣ 📂main                         
- ┃   ┃ ┃ ┗ 📄main.c 
- ┃   ┃ ┃ ┣ 📄CMakeList.txt
+ ┃ ┣ 📄VacuumCleaner.cpp               // Contains code for getting readings from LSA 
+ ┃ ┣ 📄WaterJug.cpp
+ ┃ ┣ 📄8-Puzzle.cpp
+ ┃ ┣ 📄README.cpp
  ┣ 📂Heuristic Search                
 ``` 
 
 ## Contributors
 
-* [Prit Kanadiya](https://github.com/PritK99)
+[Prit Kanadiya](https://github.com/PritK99)
 
 ## Acknowledgements and References
  
