@@ -1,3 +1,7 @@
+/*
+Heuristic function calculates the number of misplaced tiles.
+Output: 653 steps
+*/
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -143,6 +147,7 @@ vector <pair <int, vector <vector<int>>>> moveGen(vector <vector <int>> matrix, 
         {
             pair <int, vector <vector<int>>> temp;
             int x = heuristic(list[i]);
+            //We do -x since the heap is max heap
             temp.first = -x;
             temp.second = list[i];
             moves.push_back(temp);
@@ -174,8 +179,6 @@ int main()
 {
     //create a set to store visited states
     set <vector <vector <int>>> visited;
-
-    /***********************Implementing BFS*********************/
 
     //create a priority queue to hold states
     priority_queue <pair <int, vector <vector<int>>>> pq;
