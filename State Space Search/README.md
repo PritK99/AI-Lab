@@ -38,14 +38,13 @@ Consider N as ```6```
 
 * No. of states explored using BFS: ```60190```
 * No. of states explored using DFS: ```251```
-Output: ```
-0 1 0 0 0 0
+
+Output: ```0 1 0 0 0 0
 0 0 0 1 0 0
 0 0 0 0 0 1
 1 0 0 0 0 0
 0 0 1 0 0 0
-0 0 0 0 1 0
-```
+0 0 0 0 1 0```
 
 
 
