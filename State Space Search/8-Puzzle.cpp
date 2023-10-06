@@ -184,7 +184,7 @@ int main()
 
     /***********************Implementing DFS*********************/
 
-    //reset visited data strcture
+    //reset visited data structure
     visited.clear();
 
     //create a stack to hold states
