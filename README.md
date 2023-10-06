@@ -20,12 +20,15 @@
  ┃ ┣ 📄VacuumCleaner.cpp                
  ┃ ┣ 📄WaterJug.cpp
  ┃ ┣ 📄8-Puzzle.cpp
+ ┃ ┣ 📄N-Queens.cpp
  ┃ ┣ 📄README.md
  ┣ 📂Best First Search                  // Using Heuristic functions  
  ┃ ┣ 📄8-Puzzle-heuristic_1.cpp
  ┃ ┣ 📄8-Puzzle-heuristic_2.cpp
  ┃ ┣ 📄README.md 
  ┣ 📂Hill Climbing                      // Using hill climbing approach
+ ┃ ┣ 📄8-Puzzle.cpp
+ ┃ ┣ 📄SAT.cpp
  ┣ 📄README.md 
 ``` 
 
