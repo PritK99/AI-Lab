@@ -39,8 +39,9 @@
 [Prit Kanadiya](https://github.com/PritK99)
 
 ## Acknowledgements and References
-* Textbook: First Course in Artificial Intelligence by Prof. Deepak Khemani.
+* Textbook: ```First Course in Artificial Intelligence``` by Prof. Deepak Khemani.
 * Click <a href="https://www.youtube.com/playlist?list=PLEAYkSg4uSQ1FaQoCxoFvmMFnBsHTBokj">here</a> for Artifial Intelligence Playlist by NPTEL taught by Prof. Deepak Khemani.
+* ```Advance Algorithms and Complexity``` Course by UC San Diego delivered through Coursera
  
 ## License
 [MIT License](https://opensource.org/licenses/MIT)
