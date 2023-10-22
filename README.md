@@ -28,7 +28,9 @@
  ┃ ┣ 📄README.md 
  ┣ 📂Hill Climbing                      // Using hill climbing approach
  ┃ ┣ 📄8-Puzzle.cpp
- ┃ ┣ 📄SAT.cpp
+ ┣ 📂SAT                                // 3-SAT
+ ┃ ┣ 📄sat_generator.cpp
+ ┃ ┣ 📄README.md
  ┣ 📄README.md 
 ``` 
 
@@ -37,6 +39,8 @@
 [Prit Kanadiya](https://github.com/PritK99)
 
 ## Acknowledgements and References
+* Textbook: First Course in Artificial Intelligence by Prof. Deepak Khemani.
+* Click <a href="https://www.youtube.com/playlist?list=PLEAYkSg4uSQ1FaQoCxoFvmMFnBsHTBokj">here</a> for Artifial Intelligence Playlist by NPTEL taught by Prof. Deepak Khemani.
  
 ## License
 [MIT License](https://opensource.org/licenses/MIT)
