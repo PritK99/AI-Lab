@@ -1,61 +1,110 @@
 #include <iostream>
 #include <vector>
-#include <iterator>
+#include <algorithm>
+#include <math.h>
 
 using namespace std;
 
-class SATGenerator
+class Generator
 {
     public:
-    int num_var;
-    int num_clauses;
+    int vars;
+    int clauses;
+    vector <vector<int>> expr;
     
-    SATGenerator(int num_var, int num_clauses)
+    Generator(int vars, int clauses)
     {
-        this->num_var = num_var;
-        this->num_clauses = num_clauses;
+        this->vars = vars;
+        this->clauses = clauses;
     }
-    void generate()
+    void generate();
+    void printExpr();
+};
+
+void Generator::generate()
+{
+    while (expr.size() != clauses)
     {
-        vector <bool> mask (num_var);
-
-        for (int i = 0; i < num_clauses; i++)
+        vector <int> temp;
+        int counter = 0;
+        vector <int> variables (vars);
+        while(counter < 3)
         {
-            vector <int> temp ;
-            while(temp.size() <= 3) // 3-SAT
+            int index = rand()%vars;
+            if (variables[index] == 0)
             {
-                int x = rand() % num_var;
-                bool flag = 0;
-                for (int i = 0; i < temp.size(); i++)
+                int sign = rand()%2;
+                if (sign == 0)
                 {
-                    if (temp[i] == x)
-                    {
-                        flag = 1;
-                        break;
-                    }
+                    temp.push_back(index);
                 }
-                if (flag == 1)
+                else
                 {
-                    continue;
+                    temp.push_back(-index);
                 }
-                cout << "pass";
-                temp.push_back(x);
+                variables[index]=1;
+                counter++;
             }
+        }
+        sort(temp.begin(), temp.end());
+        bool flag = 0;
+        for (int i = 0; i < expr.size(); i++)
+        {
+            if (temp == expr[i])
+            {
+                flag = 1;
+            }
+        }
+        if (flag)
+        {
+            continue;
+        }
+        expr.push_back(temp);
+    }
+}
 
-            //Print the clauses generated
-            for (int i = 0; i < 3; i++)
+void Generator::printExpr()
+{
+    for (int i = 0; i < expr.size(); i++)
+    {
+        cout << "( " ;
+        for (int j = 0; j < 3; j++)
+        {
+            if (expr[i][j] < 0)
             {
-                cout << temp[i] << " ";
+                cout << "~" << char(abs(expr[i][j])+97) << " ";
             }
-            cout << endl;
+            else
+            {
+                cout << char(expr[i][j]+97) << " ";
+            }
+            if (j != 2)
+            {
+                cout << "v ";
+            }
+        }
+
+        if (i != expr.size()-1)
+        {
+            cout << ") ^ ";
+        }
+        else
+        {
+            cout << ")";
         }
     }
-};
+}
 
 int main()
 {
     srand(time(0));
-    SATGenerator SG(3,1);
-    SG.generate();
+    int vars, clauses;
+    cout << "Please enter number of variables: ";
+    cin >> vars;
+    cout << "Please enter number of clauses: ";
+    cin >> clauses;
+    Generator G(vars,clauses);
+    G.generate();
+    G.printExpr();
     return 0;
 }
