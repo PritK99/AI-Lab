@@ -40,7 +40,14 @@ void Generator::generate()
                 }
                 else
                 {
-                    temp.push_back(-index);
+                    if (index == 0)
+                    {
+                        temp.push_back(INT_MIN);
+                    }
+                    else
+                    {
+                        temp.push_back(-index);
+                    }
                 }
                 variables[index]=1;
                 counter++;
@@ -72,7 +79,14 @@ void Generator::printExpr()
         {
             if (expr[i][j] < 0)
             {
-                cout << "~" << char(abs(expr[i][j])+97) << " ";
+                if (expr[i][j] == INT_MIN)
+                {
+                    cout << "~" << char(97) << " ";
+                }
+                else
+                {
+                    cout << "~" << char(abs(expr[i][j])+97) << " ";
+                }
             }
             else
             {
