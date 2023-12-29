@@ -6,7 +6,6 @@
   - [Table of Contents](#table-of-contents)
   - [About The Project](#about-the-project)
   - [File Structure](#file-structure)
-  - [Contributors](#contributors)
   - [Acknowledgements and Resources](#acknowledgements-and-references)
   - [License](#license)
   
